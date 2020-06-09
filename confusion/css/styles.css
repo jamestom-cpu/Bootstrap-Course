@@ -39,3 +39,10 @@ body {
 .navbar-dark {
 	background-color: #512DA8;
 }
+
+.breadcrumb-item.active a {
+	color: #9575CD;
+	font-weight: bold; 
+	text-shadow: 1px 1px blue;
+}
+
