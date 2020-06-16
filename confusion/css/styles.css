@@ -40,9 +40,9 @@ body {
 	background-color: #512DA8;
 }
 
-.breadcrumb-item.active a {
-	color: #9575CD;
-	font-weight: bold; 
-	text-shadow: 1px 1px blue;
+.tab-content {
+	border: 1px solid #ddd;
+	border-top: none;
+	padding:10px;
 }
 
