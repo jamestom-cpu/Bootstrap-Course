@@ -30,10 +30,9 @@
                     <li class="navbar-item"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span> Menu</a></li>
                     <li class="navbar-item"><a class="nav-link" href="contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul>
-                <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
-                        <span class="fa fa-sign-in"></span> Login</a>
-                </span>
+                    <button class="btn btn-small" id="loginButton">
+                        <span class="fa fa-sign-in">Login</span>
+                    </button>
             </div>
         </div>        
     </nav>
@@ -44,7 +43,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Login</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close loginClose">&times;</button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -68,7 +67,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto loginClose">Cancel</button>
                             <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
                         </div>
                     </form>
@@ -77,12 +76,12 @@
         </div>
     </div>
 
-    <div id="bookatable" class="modal fade" role="dialog">
+    <div id="booktable" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Reserve a Table</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close booktableClose">&times;</button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -122,15 +121,33 @@
                             </div>
                         </div>
 
+                        <!-- <div class="form-group row font-weight-bold">
+                            <label for="smoking" class="col-12 col-lg-2 col-form-label">Section</label>
+                            <div class="col">
+                                <div class="btn-group btn-group-toggle align-self-center">
+                                    <div class="btn btn-success" id="smokeButton">
+                                        <label class="align-self-center" id="nsmoke">
+                                            Non Smoking
+                                        </label>
+                                        <label class="d-none align-self-center" id="smoke">
+                                            Smoking
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  -->
+
                         <div class="form-group row font-weight-bold">
                             <label for="smoking" class="col-12 col-lg-2 col-form-label">Section</label>
-                            <div class="btn-group btn-group-toggle align-self-center" data-toggle="buttons">
-                                <label class="btn btn-success active">
-                                    <input type="radio" name="options" id="non-smoking" autocomplete="off"> Non Smoking
-                                </label>
-                                <label class="btn btn-danger">
-                                    <input type="radio" name="options" id="smoking" autocomplete="off"> Smoking
-                                </label>
+                            <div class="col-12 col-lg-5">
+                                <div class=" btn-group btn-group-toggle align-self-center" data-toggle="buttons">
+                                    <label class="btn btn-success active">
+                                        <input type="radio" name="options" id="non-smoking" autocomplete="off" checked> Non Smoking
+                                    </label>
+                                    <label class="btn btn-danger">
+                                        <input type="radio" name="options" id="smoking" autocomplete="off"> Smoking
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
@@ -145,7 +162,7 @@
                         </div>
                             <div class="form-row">
                                 <div class="offset-lg-2 mt-3 mt-lg-0">
-                                    <button type="button" class="btn btn-secondary ml-auto font-weight-bold" data-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-secondary ml-auto font-weight-bold booktableClose">Cancel</button>
                                 </div>
                                 <div class="col-5 mt-3 mt-lg-0">
                                     <button type="submit" class="btn btn-primary ml-1 font-weight-bold"> Reserve </button>
@@ -162,7 +179,7 @@
         <div class="container">
             <div class="row row-header">
                 <div class="col-12 col-sm-6">
-                    <h1>Ristorante con Fusion</h1>
+                    <h1>Ristorante con tomas</h1>
                     <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
                 </div>
                 <div class="col-12 col-sm align-self-center text-center">
@@ -170,9 +187,9 @@
                     <img src="img/logo.png" class="img-fluid">    
                 </div>
                 <div class="col-12 col-sm align-self-center mt-5 mt-sm-0">
-                    <a role="button" class="btn btn-warning btn-block btn-large" 
-                       data-toggle="modal" data-target="#bookatable">
-                       <span class="font-weight-bold">Reserve a Table</span></a>
+                    <button role="button" class="btn btn-warning btn-block btn-large" 
+                       id="booktableButton">
+                       <span class="font-weight-bold">Reserve a Table</span></button>
                 </div>
             </div>
         </div>
@@ -327,23 +344,7 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script>
-     $(document).ready(function() {
-        $('#mycarousel').carousel({ interval:2000 });
-        $('#carouselButton').click(function() {
-            if ($('#carouselButton').children('span').hasClass('fa-pause')) {
-                $('#mycarousel').carousel('pause');
-                $('#carouselButton').children('span').removeClass('fa-pause');
-                $('#carouselButton').children('span').addClass('fa-play');
-            }
-            else {
-                $('#mycarousel').carousel('cycle');
-                $('#carouselButton').children('span').removeClass('fa-play');
-                $('#carouselButton').children('span').addClass('fa-pause');
-            }
-        });
-     });
-    </script>
+    <script src="js/myjquery.js"></script>
 </body>
 
 </html>

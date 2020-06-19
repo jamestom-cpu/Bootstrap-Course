@@ -75,3 +75,30 @@ body {
     bottom: 0px;
     z-index: 1;
 }
+
+#loginButton {
+    position:absolute;
+    right: 1em;
+    color: floralwhite;
+    background-color: $background-dark;
+    border: 1px ridge $background-pale;
+}
+
+#smokeButton {
+    min-width: 150px;
+    z-index: 1;
+}
+
+.modal{
+    .modal-body {
+        background-color: $background-pale;
+    }
+    .modal-header{
+        background-color: $background-dark;
+        color: floralwhite;
+        .close {
+            color: $background-pale;
+            font-weight: bold;
+        }
+    }
+}

@@ -52,3 +52,24 @@ body {
   position: absolute;
   bottom: 0px;
   z-index: 1; }
+
+#loginButton {
+  position: absolute;
+  right: 1em;
+  color: floralwhite;
+  background-color: #512DA8;
+  border: 1px ridge #D1c4e9; }
+
+#smokeButton {
+  min-width: 150px;
+  z-index: 1; }
+
+.modal .modal-body {
+  background-color: #D1c4e9; }
+
+.modal .modal-header {
+  background-color: #512DA8;
+  color: floralwhite; }
+  .modal .modal-header .close {
+    color: #D1c4e9;
+    font-weight: bold; }
