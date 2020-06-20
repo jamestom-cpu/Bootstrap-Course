@@ -54,8 +54,6 @@ body {
   z-index: 1; }
 
 #loginButton {
-  position: absolute;
-  right: 1em;
   color: floralwhite;
   background-color: #512DA8;
   border: 1px ridge #D1c4e9; }

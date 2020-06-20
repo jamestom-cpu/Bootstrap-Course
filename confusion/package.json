@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "node-sass -o css/ css/",
-    "browser": "browser-sync start --server --directory --files \"**/*\""
+    "browser": "browser-sync start --server --directory --files \"**/*\"",
+    "lite": "lite-server",
+    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run browser\"",
+    "start": "npm run watch:all"
   },
   "author": "James Tom",
   "license": "ISC",
@@ -18,7 +22,10 @@
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "lite-server": "^2.5.4",
     "node-sass": "^4.14.1",
-    "browser-sync": "^2.26.7"
+    "onchange": "^7.0.2",
+    "parallelshell": "^3.0.2"
   }
 }
